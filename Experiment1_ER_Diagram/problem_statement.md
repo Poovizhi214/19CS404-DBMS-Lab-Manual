@@ -45,28 +45,55 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission - POOVIZHI P
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+University 
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+[University er]https://github.com/user-attachments/assets/290b1430-751a-417d-8b5d-fdea41295679
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
+```
+-DEPARTMENT:Dept_ID (Primary Key),Name
+-PROGRAM:Program_ID (Primary Key),Program Name
+-STUDENT:Student_ID (Primary Key),Admission No,Name,DOB,Phone No,E-mail,Age (Derived/optional)
+-INSTRUCTOR:Instructor_ID (Primary Key),Name,Phone No,E-mail,Experience
+-COURSE:Course_ID (Primary Key),Course Name,Credits,Faculty
+-ENROLLMENT:Student_ID (Foreign Key),Course_ID (Foreign Key),Enrollment Date
 ...
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
-
+```
+1.INCLUDES
+Entities involved: PROGRAM — STUDENT
+Cardinality: One program includes many students (1:N)
+Participation: Total on STUDENT, Partial on PROGRAM
+2.OFFERS (Program → Course)
+Cardinality: One program offers many courses (1:N)
+Participation: Partial on PROGRAM, Total on COURSE
+3.HAS (Program → Instructor)
+Cardinality: One program has many instructors (1:N)
+Participation: Partial
+4.TEACHES (Instructor → Course)
+Cardinality: One instructor teaches many courses (1:N)
+Participation: Partial
+5.ENROLLS IN (Student → Course)
+Cardinality: Many-to-Many (M:N)
+Participation: Partial
+```
 ## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+Prerequisite is modeled via a recursive relationship on the COURSE entity. This allows one course to reference another as a prerequisite.
+
+Billing is not represented in this diagram. To support billing, you would introduce a new entity like BILLING with attributes (Bill_ID, Student_ID, Amount, Date) and relate it to STUDENT (1:N).
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+-Derived Attribute: Age is derived from DOB, showing normalization.
+-Use of ENROLLMENT Entity: To resolve the M:N relationship between STUDENT and COURSE.
+-Recursive Relationship: The COURSE entity uses this to elegantly model prerequisites.
+-Modular Design: Entities are separated logically by roles (e.g., STUDENT, COURSE, INSTRUCTOR), improving maintainability.
+-Departmental Structure: Reflects academic hierarchy by linking DEPARTMENT to both PROGRAM and INSTRUCTOR.
 
 ## RESULT
+Thus the er diagram was created with entities,attributes and relationships.
