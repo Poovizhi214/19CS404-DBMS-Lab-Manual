@@ -105,22 +105,27 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Create a table named Department with the following constraints: 
+ DepartmentID as INTEGER should be the primary key. 
+ DepartmentName as TEXT should be unique and not NULL. 
+ Location as TEXT
 
 ```sql
--- Paste your SQL code below for Question 1
+---CREATE TABLE Department(DepartmentID INTEGER PRIMARY KEY,
+DepartmentName TEXT UNIQUE NOT NULL, Location TEXT);
 ```
 
 **Output:**
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Write a SQL Query to add attribute Date_of_joining as Date and rename the attribute 
+job_title as Designation in the table 'Employees'.
 
 ```sql
--- Paste your SQL code below for Question 2
+-- ALTER TABLE Employees ADD COLUMN Date_of_joining Date;
+ALTER TABLE Employees RENAME job_title to Designation;
 ```
 
 **Output:**
@@ -129,10 +134,15 @@ CREATE TABLE Table_Name (
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- Insert the following customers into the Customers table:
+CustomerID   Name         Address       City      ZipCode
+----------  ----------- ----------    ---------- ----------
+302       Laura Croft    456 Elm St    Seattle    98101
+303       Bruce Wayne    789 Oak St    Gotham     10001
 
 ```sql
--- Paste your SQL code below for Question 3
+-- INSERT INTO Customers (CustomerID,Name,Address,City,ZipCode) VALUES(302, "Laura Croft", "456 Elm St", "Seattle", 98101);
+    INSERT INTO Customers VALUES(303, "Bruce Wayne", "789 Oak St", "Gotham", 10001);
 ```
 
 **Output:**
@@ -141,10 +151,20 @@ CREATE TABLE Table_Name (
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Create a table named Bonuses with the following constraints:
+ BonusID as INTEGER should be the primary key.
+ EmployeeID as INTEGER should be a foreign key 
+referencing Employees(EmployeeID).
+ BonusAmount as REAL should be greater than 0.
+ BonusDate as DATE.
+ Reason as TEXT should not be NULL.
 
 ```sql
--- Paste your SQL code below for Question 4
+-- CREATE TABLE Bonuses(BonusID INTEGER PRIMARY KEY,
+EmployeeID INTEGER, BonusAmount REAL CHECK(BonusAmount>0),
+BonusDate DATE,
+Reason TEXT NOT NULL,
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID));
 ```
 
 **Output:**
@@ -153,10 +173,12 @@ CREATE TABLE Table_Name (
 
 **Question 5**
 ---
--- Paste Question 5 here
-
+-- Insert all employees from Former_employees into Employee
+Table attributes are EmployeeID, Name, Department, Salary
+ 
 ```sql
--- Paste your SQL code below for Question 5
+-- INSERT INTO Employee
+    SELECT * FROM Former_employees
 ```
 
 **Output:**
@@ -165,10 +187,18 @@ CREATE TABLE Table_Name (
 
 **Question 6**
 ---
--- Paste Question 6 here
+--Create a table named Shipments with the following constraints:
+ ShipmentID as INTEGER should be the primary key.
+ ShipmentDate as DATE.
+ SupplierID as INTEGER should be a foreign key 
+referencing Suppliers(SupplierID).
+ OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 6
+-- CREATE TABLE Shipments(ShipmentID INTEGER PRIMARY KEY,
+ShipmentDate DATE, SupplierID INTEGER, OrderID INTEGER,
+FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID),
+FOREIGN KEY (OrderID) REFERENCES Orders(OrderID));
 ```
 
 **Output:**
@@ -177,10 +207,18 @@ CREATE TABLE Table_Name (
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Create a table named Invoices with the following constraints:
+ InvoiceID as INTEGER should be the primary key.
+ InvoiceDate as DATE.
+ Amount as REAL should be greater than 0.
+ DueDate as DATE should be greater than the InvoiceDate.
+ OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 7
+-- CREATE TABLE Invoices(InvoiceID INTEGER PRIMARY KEY,
+InvoiceDate DATE, Amount REAL CHECK(Amount>0),
+DueDate DATE CHECK(DueDate>InvoiceDate), OrderID INTEGER,
+FOREIGN KEY (OrderID) REFERENCES Orders(OrderID));
 ```
 
 **Output:**
@@ -189,10 +227,12 @@ CREATE TABLE Table_Name (
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write an SQL query to add two new columns, first_name and last_name, to the 
+table employee. Both columns should have a data type of varchar(50).
 
 ```sql
--- Paste your SQL code below for Question 8
+--ALTER TABLE employee ADD COLUMN first_name varchar(50);
+ALTER TABLE employee ADD COLUMN last_name varchar(50);
 ```
 
 **Output:**
@@ -201,10 +241,19 @@ CREATE TABLE Table_Name (
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write a SQL query to Add a new column mobilenumber as number in the Student_details table.
+Sample table: Student_details
+ cid              name             type   notnull     dflt_value  pk
+---------------  ---------------  -----  ----------  ----------  ----------
+0                RollNo           int    0                       1
+1                Name             VARCH  1                       0
+2                Gender           TEXT   1                       0
+3                Subject          VARCH  0                       0
+4                MARKS            INT (  0                       0
 
 ```sql
--- Paste your SQL code below for Question 9
+-- ALTER table Student_details
+ADD column mobilenumber number;
 ```
 
 **Output:**
@@ -213,10 +262,12 @@ CREATE TABLE Table_Name (
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and 
+MARKS 92 into the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 10
+--INSERT INTO Student_details(RollNo,Name,Gender,Subject,MARKS)
+VALUES(201, "David Lee", "M", "Physics", 92);
 ```
 
 **Output:**
