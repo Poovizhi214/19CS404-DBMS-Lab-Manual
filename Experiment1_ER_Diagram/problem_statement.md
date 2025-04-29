@@ -65,7 +65,7 @@ University
 ...
 
 ## Relationships and Constraints:
-```
+~~~
 1.INCLUDES
 Entities involved: PROGRAM — STUDENT
 Cardinality: One program includes many students (1:N)
@@ -82,7 +82,7 @@ Participation: Partial
 5.ENROLLS IN (Student → Course)
 Cardinality: Many-to-Many (M:N)
 Participation: Partial
-```
+~~~
 ## Extension (Prerequisite / Billing):
 Prerequisite is modeled via a recursive relationship on the COURSE entity. This allows one course to reference another as a prerequisite.
 
