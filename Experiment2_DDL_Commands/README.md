@@ -116,7 +116,7 @@ DepartmentName TEXT UNIQUE NOT NULL, Location TEXT);
 ```
 
 **Output:**
-![Output2](output.png)
+![Output1](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%201.png
 
 **Question 2**
 ---
@@ -130,7 +130,7 @@ ALTER TABLE Employees RENAME job_title to Designation;
 
 **Output:**
 
-![Output2](output.png)
+![Output2](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%202.png
 
 **Question 3**
 ---
@@ -147,7 +147,7 @@ CustomerID   Name         Address       City      ZipCode
 
 **Output:**
 
-![Output3](output.png)
+![Output3](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%203.png
 
 **Question 4**
 ---
@@ -169,7 +169,7 @@ FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID));
 
 **Output:**
 
-![Output4](output.png)
+![Output4](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%204.png
 
 **Question 5**
 ---
@@ -183,7 +183,7 @@ Table attributes are EmployeeID, Name, Department, Salary
 
 **Output:**
 
-![Output5](output.png)
+![Output5](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%205.png
 
 **Question 6**
 ---
@@ -203,7 +203,7 @@ FOREIGN KEY (OrderID) REFERENCES Orders(OrderID));
 
 **Output:**
 
-![Output6](output.png)
+![Output6](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%206.png
 
 **Question 7**
 ---
@@ -223,7 +223,7 @@ FOREIGN KEY (OrderID) REFERENCES Orders(OrderID));
 
 **Output:**
 
-![Output7](output.png)
+![Output7](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%207.png
 
 **Question 8**
 ---
@@ -237,7 +237,7 @@ ALTER TABLE employee ADD COLUMN last_name varchar(50);
 
 **Output:**
 
-![Output8](output.png)
+![Output8](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%208.png
 
 **Question 9**
 ---
@@ -258,7 +258,7 @@ ADD column mobilenumber number;
 
 **Output:**
 
-![Output9](output.png)
+![Output9](output.png)https://github.com/Poovizhi214/Images-file/blob/6ebc5ff480604efbde9135b9a16aa9ac4707a5ff/DDL%209.png
 
 **Question 10**
 ---
