@@ -53,7 +53,8 @@ SELECT column1, column2 FROM table_name WHERE condition;
 -- Paste your SQL code below for Question 1
 ```
 
-**Output:**
+**Output:**<img width="563" alt="DML 1" src="https://github.com/user-attachments/assets/c15dd22e-e295-489c-81a1-f7dbd34f735b" />
+
 
 ![Output1](output.png)
 
