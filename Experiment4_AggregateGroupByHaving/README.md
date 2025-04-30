@@ -78,7 +78,8 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70002       65.26       2012-10-05  3002         5001
 
 ```sql
--- select sum(purch_amt) as TOTAL from orders;
+--
+select sum(purch_amt) as TOTAL from orders;
 ```
 
 **Output:**
