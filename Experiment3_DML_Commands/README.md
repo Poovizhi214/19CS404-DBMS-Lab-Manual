@@ -61,7 +61,8 @@ quantity       INT
 supplier_id    INT              
 
 ```sql
---update Products set reorder_lvl=reorder_lvl-(0.3*reorder_lvl)
+--
+update Products set reorder_lvl=reorder_lvl-(0.3*reorder_lvl)
 where cost_price>50 and quantity<100;
 ```
 
@@ -81,7 +82,8 @@ category_id
 availability
 
 ```sql
--- update Products set product_name="Grapefruit"
+--
+update Products set product_name="Grapefruit"
 where product_id=4;
 ```
 
@@ -106,7 +108,8 @@ quantity           INT
 supplier_id        INT
 
 ```sql
--- update Products set reorder_lvl=40
+--
+update Products set reorder_lvl=40
 where category='Grocery';
 ```
 
@@ -122,7 +125,8 @@ Sample table: Doctors
 attributes : doctor_id, first_name, last_name, specialization
 
 ```sql
--- Delete from Doctors
+--
+Delete from Doctors
 where Specialization = "Pediatrics"
 and first_name like "Michael";
 ```
@@ -138,7 +142,8 @@ and first_name like "Michael";
 Sample table: Customer
 
 ```sql
--- Delete from customer
+--
+Delete from customer
 where (grade%2!=0);
 ```
 
@@ -156,7 +161,8 @@ EmpID    EmpPosition   DateOfJoining   Salary
 2      Executive      02/05/2024      75000
 
 ```sql
--- select * from Employeeposition
+--
+select * from Employeeposition
 where salary between 50000 and 100000;
 ```
 
@@ -178,7 +184,8 @@ cid           name             type      notnu  dflt_value    pk
 4             salesman_id      int       0                    0
 
 ```sql
--- select * from customer
+--
+select * from customer
 where cust_name like "%n";
 ```
 
@@ -201,7 +208,8 @@ cid         name        type        notnull     dflt_value  pk
 6           decimal     REAL        0                       0
 
 ```sql
--- select id,base,
+--
+select id,base,
 CASE
 when base is not null then 'Provided'
 else 'Not Provided'
@@ -228,7 +236,8 @@ product_id | original_price | discount_percentage | tax_rate
 103 | 100.00 | 0.20 | 0.10
 
 ```sql
--- select product_id,
+--
+select product_id,
 original_price,
 discount_percentage,
 tax_rate,
@@ -244,9 +253,7 @@ from Products;
 **Question 10**
 ---
 -- Write a SQL query to Select all patients who was admitted in hospital for more than 3 days.
-
 Table: Patients
-
 name                  type
 --------------------  ----------
 patient_id            INT
@@ -258,7 +265,8 @@ discharge_date        DATE
 doctor_id             INT
 
 ```sql
--- select first_name,
+--
+select first_name,
 last_name,
 JULIANDAY(discharge_date)-JULIANDAY(admission_date)+1 as no_of_days
 from Patients
