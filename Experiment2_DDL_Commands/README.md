@@ -116,7 +116,7 @@ DepartmentName TEXT UNIQUE NOT NULL, Location TEXT);
 ```
 
 **Output:**
-
+![Output2](output.png)
 
 **Question 2**
 ---
@@ -272,7 +272,7 @@ VALUES(201, "David Lee", "M", "Physics", 92);
 
 **Output:**
 
-![Output10](output.png)
+![Output10](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%2010.png
 
 
 ## RESULT
