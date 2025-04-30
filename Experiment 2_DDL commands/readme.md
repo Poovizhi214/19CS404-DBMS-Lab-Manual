@@ -105,174 +105,215 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Create a table named Department with the following constraints: 
- DepartmentID as INTEGER should be the primary key. 
- DepartmentName as TEXT should be unique and not NULL. 
- Location as TEXT
+-- Create a table named Employees with the following constraints:
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
----CREATE TABLE Department(DepartmentID INTEGER PRIMARY KEY,
-DepartmentName TEXT UNIQUE NOT NULL, Location TEXT);
+---
+create table Employees(
+EmployeeID PRIMARY KEY,
+FirstName NOT NULL,
+LastName NOT NULL,
+Email UNIQUE,
+Salary check(Salary>0),
+DepartmentID int,
+Foreign key (DepartmentID) REFERENCES Departments(DepartmentID));
 ```
 
 **Output:**
-![Output1](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%201.png
+![Output1](output.png)![image](https://github.com/user-attachments/assets/69aaf62e-0fe3-4b4d-9ef1-f2d1ceb35e10)
+
 
 **Question 2**
 ---
--- Write a SQL Query to add attribute Date_of_joining as Date and rename the attribute 
-job_title as Designation in the table 'Employees'.
+-- Create a table named Products with the following constraints:
+ProductID should be the primary key.
+ProductName should be NOT NULL.
+Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
 
 ```sql
--- ALTER TABLE Employees ADD COLUMN Date_of_joining Date;
-ALTER TABLE Employees RENAME job_title to Designation;
+--
+create table Products(
+ProductID int primary key,
+ProductName NOT NULL,
+Price real check(Price>0),
+Stock int check(Stock>=0));
 ```
 
 **Output:**
 
-![Output2](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%202.png
+![Output2](output.png)![image](https://github.com/user-attachments/assets/de734b58-1d46-44c6-ae8e-47457be86ef4)
+
 
 **Question 3**
 ---
--- Insert the following customers into the Customers table:
-CustomerID   Name         Address       City      ZipCode
-----------  ----------- ----------    ---------- ----------
-302       Laura Croft    456 Elm St    Seattle    98101
-303       Bruce Wayne    789 Oak St    Gotham     10001
+-- Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
 ```sql
--- INSERT INTO Customers (CustomerID,Name,Address,City,ZipCode) VALUES(302, "Laura Croft", "456 Elm St", "Seattle", 98101);
-    INSERT INTO Customers VALUES(303, "Bruce Wayne", "789 Oak St", "Gotham", 10001);
+-- I
+create table contacts(
+contact_id INTEGER PRIMARY KEY,
+first_name TEXT NOT NULL,
+last_name TEXT NOT NULL,
+email TEXT,
+phone TEXT NOT NULL check(LENGTH(phone)>=10));
 ```
 
 **Output:**
 
-![Output3](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%203.png
+![Output3](output.png)![image](https://github.com/user-attachments/assets/26d98290-7851-4687-b701-04bc38b1cc89)
+
 
 **Question 4**
 ---
--- Create a table named Bonuses with the following constraints:
- BonusID as INTEGER should be the primary key.
- EmployeeID as INTEGER should be a foreign key 
-referencing Employees(EmployeeID).
- BonusAmount as REAL should be greater than 0.
- BonusDate as DATE.
- Reason as TEXT should not be NULL.
+-- Insert all students from Archived_students table into the Student_details table.
+cid         name        type        notnull     dflt_value  pk
+----------  ----------  ----------  ----------  ----------  ----------
+0           RollNo      INT           0                       1
+1           Name        VARCHAR(100)  0                       0
+2           Gender      VARCHAR(10)   0                       0
+3           Subject     VARCHAR(50)   0                       0
+4           MARKS       INT           0                       0
 
 ```sql
--- CREATE TABLE Bonuses(BonusID INTEGER PRIMARY KEY,
-EmployeeID INTEGER, BonusAmount REAL CHECK(BonusAmount>0),
-BonusDate DATE,
-Reason TEXT NOT NULL,
-FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID));
+--
+insert into Student_details(RollNo,Name,Gender,Subject,Marks)
+Select RollNo,Name,Gender,Subject,Marks
+from Archived_students;
 ```
 
 **Output:**
 
-![Output4](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%204.png
+![Output4](output.png)![image](https://github.com/user-attachments/assets/6cc9a978-d1b0-4f1d-8e1c-b4725a3afa2b)
+
 
 **Question 5**
 ---
--- Insert all employees from Former_employees into Employee
-Table attributes are EmployeeID, Name, Department, Salary
+-- Insert the below data into the Student_details table, allowing the Subject and MARKS columns to take their default values.
+RollNo      Name          Gender      
+----------  ------------  ----------  
+204         Samuel Black  M          
+Note: The Subject and MARKS columns will use their default values.
  
 ```sql
--- INSERT INTO Employee
-    SELECT * FROM Former_employees
+--
+insert into Student_details(RollNo,Name,Gender)
+VALUES (204,'Samuel Black','M');
 ```
 
 **Output:**
 
-![Output5](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%205.png
+![Output5](output.png)![image](https://github.com/user-attachments/assets/e9fc0ad0-507f-45ff-b404-0fc6738200ed)
+
 
 **Question 6**
 ---
---Create a table named Shipments with the following constraints:
- ShipmentID as INTEGER should be the primary key.
- ShipmentDate as DATE.
- SupplierID as INTEGER should be a foreign key 
-referencing Suppliers(SupplierID).
- OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+--Write a SQL query to Rename the "city" column to "location" in the "customer" table.
+Sample table: customer
+ customer_id |   cust_name    |    city    | grade | salesman_id 
+-------------+----------------+------------+-------+-------------
+        3002 | Nick Rimando   | New York   |   100 |        5001
+        3007 | Brad Davis     | New York   |   200 |        5001
+        3005 | Graham Zusi    | California |   200 |        5002
 
 ```sql
--- CREATE TABLE Shipments(ShipmentID INTEGER PRIMARY KEY,
-ShipmentDate DATE, SupplierID INTEGER, OrderID INTEGER,
-FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID),
-FOREIGN KEY (OrderID) REFERENCES Orders(OrderID));
+--
+alter table customer rename column city to location;
 ```
 
 **Output:**
 
-![Output6](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%206.png
+![Output6](output.png)![image](https://github.com/user-attachments/assets/7eeafe97-fe98-4455-9086-d882183e51d3)
 
 **Question 7**
 ---
--- Create a table named Invoices with the following constraints:
- InvoiceID as INTEGER should be the primary key.
- InvoiceDate as DATE.
- Amount as REAL should be greater than 0.
- DueDate as DATE should be greater than the InvoiceDate.
- OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+--Insert the following products into the Products table:
+Name        Category     Price       Stock
+----------  -----------  ----------  ----------
+Smartphone  Electronics  800         150
+Headphones  Accessories  200         300
 
 ```sql
--- CREATE TABLE Invoices(InvoiceID INTEGER PRIMARY KEY,
-InvoiceDate DATE, Amount REAL CHECK(Amount>0),
-DueDate DATE CHECK(DueDate>InvoiceDate), OrderID INTEGER,
-FOREIGN KEY (OrderID) REFERENCES Orders(OrderID));
+--
+insert into Products(Name,Category,Price,Stock)
+VALUES('Smartphone','Electronics',800,150),
+('Headphones','Accessories',200,300);
 ```
 
 **Output:**
 
-![Output7](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%207.png
+![Output7](output.png)![image](https://github.com/user-attachments/assets/707daeea-174c-4374-8e87-7bf6367a09bc)
+
 
 **Question 8**
 ---
--- Write an SQL query to add two new columns, first_name and last_name, to the 
-table employee. Both columns should have a data type of varchar(50).
+-- Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
---ALTER TABLE employee ADD COLUMN first_name varchar(50);
-ALTER TABLE employee ADD COLUMN last_name varchar(50);
+--
+create table ProjectAssignments(
+AssignmentID INTEGER PRIMARY KEY,
+EmployeeID INTEGER,
+ProjectID INTEGER,
+AssignmentDate Date NOT NULL,
+Foreign key (EmployeeID) REFERENCES Employees(EmployeeID),
+Foreign key (ProjectID) REFERENCES Projects(ProjectID));
 ```
 
 **Output:**
 
-![Output8](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%208.png
+![Output8](output.png)![image](https://github.com/user-attachments/assets/d5b5bbbe-8a57-439c-8e5a-b7fba7167197)
+
 
 **Question 9**
 ---
--- Write a SQL query to Add a new column mobilenumber as number in the Student_details table.
-Sample table: Student_details
- cid              name             type   notnull     dflt_value  pk
----------------  ---------------  -----  ----------  ----------  ----------
-0                RollNo           int    0                       1
-1                Name             VARCH  1                       0
-2                Gender           TEXT   1                       0
-3                Subject          VARCH  0                       0
-4                MARKS            INT (  0                       0
+-- Write a SQL Query  to add attribute Date_of_joining as Date and rename the attribute job_title as Designation in the table 'Employees'
 
 ```sql
--- ALTER table Student_details
-ADD column mobilenumber number;
+--
+Alter table Employees
+ADD Date_of_joining Date;
+Alter table Employees
+Rename column job_title to Designation;
 ```
 
 **Output:**
 
-![Output9](output.png)https://github.com/Poovizhi214/Images-file/blob/6ebc5ff480604efbde9135b9a16aa9ac4707a5ff/DDL%209.png
+![Output9](output.png)![image](https://github.com/user-attachments/assets/d07655d8-8eff-4a39-8a33-b183b023bc94)
+
 
 **Question 10**
 ---
--- Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and 
-MARKS 92 into the Student_details table.
+-- Create a table named Members with the following columns:
+MemberID as INTEGER
+MemberName as TEXT
+JoinDate as DATE
 
 ```sql
---INSERT INTO Student_details(RollNo,Name,Gender,Subject,MARKS)
-VALUES(201, "David Lee", "M", "Physics", 92);
+--
+create table Members(
+MemberID INTEGER,
+MemberName TEXT,
+JoinDate DATE);
 ```
 
 **Output:**
 
-![Output10](output.png)https://github.com/Poovizhi214/Images-file/blob/df74c34004946b2de13ae79ea4fd12715a80622c/DDL%2010.png
+![Output10](output.png)![image](https://github.com/user-attachments/assets/b1e0e30e-ebc1-4493-adf9-eb52786b61e6)
 
 
 ## RESULT
