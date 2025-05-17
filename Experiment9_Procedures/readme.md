@@ -74,6 +74,7 @@ Key Differences:
 Square of 6 is 36
 
 **Output:**
+
 ![image](https://github.com/user-attachments/assets/41f98304-543e-42e4-b721-d448477ae769)
 
 ## 2. Write a PL/SQL Function to Return the Factorial of a Number
@@ -220,6 +221,7 @@ Multiplication table of 5:
 5 x 10 = 50
 
 **Output:**
+
 ![image](https://github.com/user-attachments/assets/1f1c6be6-de41-4bb6-b407-c7dd3670599f)
 
 
