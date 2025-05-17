@@ -30,8 +30,7 @@ END;
 - Create two tables: `employees` (for storing data) and `employee_log` (for logging the inserts).
 - Write an **AFTER INSERT** trigger on the `employees` table to log the new data into the `employee_log` table.
 
-  **PL/SQL query**
-  ```
+PL/SQL query
 create table employees11(
  employee_id INT primary key,
  first_name VARCHAR(50),
