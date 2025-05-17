@@ -3,7 +3,6 @@
 ## AIM
 To understand and implement procedures and functions in PL/SQL for performing various operations such as calculations, decision-making, and looping.
 
-
 ## THEORY
 
 PL/SQL (Procedural Language/SQL) extends SQL by adding procedural constructs like variables, conditions, loops, procedures, and functions. Procedures and functions are subprograms that help modularize the code and improve reusability.
@@ -61,9 +60,8 @@ Key Differences:
 
   PL/SQL query
   ```
-  CREATE OR REPLACE PROCEDURE FIND_SQUARE (num IN NUMBER) IS
-    square NUMBER;
-BEGIN
+  CREATE OR REPLACE PROCEDURE FIND_SQUARE (num IN NUMBER) IS square NUMBER;
+   BEGIN
     square := num * num;
     DBMS_OUTPUT.PUT_LINE('Square of ' || num || ' is ' || square);
 END;
@@ -71,11 +69,11 @@ BEGIN
     FIND_SQUARE(6);
 END;
 /
-```
+
 **Expected Output:**  
 Square of 6 is 36
 ![image](https://github.com/user-attachments/assets/41f98304-543e-42e4-b721-d448477ae769)
-```
+
 ## 2. Write a PL/SQL Function to Return the Factorial of a Number
 
 ### Steps:
@@ -111,12 +109,9 @@ BEGIN
 END;
 /
 ```
-```
 **Expected Output:**  
 Factorial of 5 is 120
 ![image](https://github.com/user-attachments/assets/78e8de2e-7684-4630-b658-4802b6404c49)
-
----
 
 ## 3. Write a PL/SQL Procedure to Check Whether a Number is Even or Odd
 
@@ -145,8 +140,6 @@ END;
 **Expected Output:**  
 12 is Even
 ![image](https://github.com/user-attachments/assets/50c3ac62-8f19-452e-8a4f-3b4f2d07feed)
-
----
 
 ## 4. Write a PL/SQL Function to Return the Reverse of a Number
 
@@ -185,8 +178,6 @@ END;
 **Expected Output:**  
 Reversed number of 1234 is 4321
 ![image](https://github.com/user-attachments/assets/2256f66d-8388-41fd-ae68-703366191ccd)
-
----
 
 ## 5. Write a PL/SQL Procedure to Display the Multiplication Table of a Number
 
