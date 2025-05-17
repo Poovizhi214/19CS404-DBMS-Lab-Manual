@@ -3,7 +3,6 @@
 ## AIM
 To understand and implement procedures and functions in PL/SQL for performing various operations such as calculations, decision-making, and looping.
 
----
 
 ## THEORY
 
@@ -76,9 +75,7 @@ END;
 **Expected Output:**  
 Square of 6 is 36
 ![image](https://github.com/user-attachments/assets/41f98304-543e-42e4-b721-d448477ae769)
-
----
-
+```
 ## 2. Write a PL/SQL Function to Return the Factorial of a Number
 
 ### Steps:
@@ -89,7 +86,8 @@ Square of 6 is 36
 - Call the function using a `SELECT` statement or in an anonymous block.
 
 PL/SQL query
-```CREATE OR REPLACE FUNCTION GET_FACTORIAL(n IN NUMBER)
+```
+CREATE OR REPLACE FUNCTION GET_FACTORIAL(n IN NUMBER)
 RETURN NUMBER
 IS
     result NUMBER := 1;
@@ -113,7 +111,7 @@ BEGIN
 END;
 /
 ```
-
+```
 **Expected Output:**  
 Factorial of 5 is 120
 ![image](https://github.com/user-attachments/assets/78e8de2e-7684-4630-b658-4802b6404c49)
@@ -221,6 +219,7 @@ Multiplication table of 5:
 5 x 3 = 15  
 ...  
 5 x 10 = 50
+
 ![image](https://github.com/user-attachments/assets/1f1c6be6-de41-4bb6-b407-c7dd3670599f)
 
 
