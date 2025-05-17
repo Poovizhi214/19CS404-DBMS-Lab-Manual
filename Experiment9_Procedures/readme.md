@@ -72,6 +72,7 @@ Key Differences:
 
 **Expected Output:**  
 Square of 6 is 36
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/41f98304-543e-42e4-b721-d448477ae769)
 
@@ -112,6 +113,7 @@ END;
 ```
 **Expected Output:**  
 Factorial of 5 is 120
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/78e8de2e-7684-4630-b658-4802b6404c49)
 
@@ -141,6 +143,7 @@ END;
 ```
 **Expected Output:**  
 12 is Even
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/50c3ac62-8f19-452e-8a4f-3b4f2d07feed)
 
@@ -180,6 +183,7 @@ END;
 ```
 **Expected Output:**  
 Reversed number of 1234 is 4321
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/2256f66d-8388-41fd-ae68-703366191ccd)
 
@@ -214,6 +218,7 @@ Multiplication table of 5:
 5 x 3 = 15  
 ...  
 5 x 10 = 50
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/1f1c6be6-de41-4bb6-b407-c7dd3670599f)
 
