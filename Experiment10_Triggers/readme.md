@@ -31,6 +31,7 @@ END;
 - Write an **AFTER INSERT** trigger on the `employees` table to log the new data into the `employee_log` table.
 
 PL/SQL query
+```
 create table employees11(
  employee_id INT primary key,
  first_name VARCHAR(50),
@@ -57,7 +58,7 @@ create table employees11(
   INSERT INTO employees11(employee_id,first_name,dept_no,salary)
   values(1,'Alice',10,5000.00);
   select * from employee_log;
-
+```
 **Expected Output:**
 - A new entry is added to the `employee_log` table each time a new record is inserted into the `employees` table.
  ![image](https://github.com/user-attachments/assets/ee269419-bf8f-4542-a75e-a47b74ea37ed)
