@@ -30,8 +30,39 @@ END;
 - Create two tables: `employees` (for storing data) and `employee_log` (for logging the inserts).
 - Write an **AFTER INSERT** trigger on the `employees` table to log the new data into the `employee_log` table.
 
+  **PL/SQL query**
+  ```
+create table employees11(
+ employee_id INT primary key,
+ first_name VARCHAR(50),
+ dept_no INT,
+ salary DECIMAL(10,2)
+ );
+ create table employee_log(
+   log_id INT AUTO_INCREMENT primary key,
+   employee_id INT,
+   first_name VARCHAR(50),
+   dept_no INT,
+   salary DECIMAL(10,2),
+   log_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   );
+   DELIMITER $$
+   create trigger trg_log_employee_insert
+   AFTER INSERT ON employees11
+   FOR EACH ROW
+   BEGIN
+      Insert into employee_log(employee_id,first_name,dept_no,salary)
+      values(New.employee_id,new.first_name,new.dept_no,new.salary);
+  END$$
+  DELIMITER ;
+  INSERT INTO employees11(employee_id,first_name,dept_no,salary)
+  values(1,'Alice',10,5000.00);
+  select * from employee_log;
+  ```
+
 **Expected Output:**
 - A new entry is added to the `employee_log` table each time a new record is inserted into the `employees` table.
+![image](https://github.com/user-attachments/assets/f415d295-9760-438a-ac3a-94901e1f44d4)
 
 ---
 
