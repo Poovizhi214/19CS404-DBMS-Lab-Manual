@@ -69,9 +69,28 @@ create table employees11(
 **Steps:**
 - Write a **BEFORE DELETE** trigger on the `sensitive_data` table.
 - Use `RAISE_APPLICATION_ERROR` to prevent deletion and issue a custom error message.
-
+  PL/SQL query
+  ```
+  create table sensitive_data(
+    record_id INT primary key,
+    info varchar(50)
+    );
+    DELIMITER $$
+    create trigger trg_prevent_delete_sensitive
+    BEFORE delete on sensitive_data
+    FOR EACH ROW
+    BEGIN
+      SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TExT = 'ERROR:DELETION not allowed in this table';
+END$$
+DELIMITER ;
+Insert INTO sensitive_data(record_id,info) values (1,'Top secret');
+DELETE FROM sensitive_data where record_id=1;
+```
+```
 **Expected Output:**
 - If an attempt is made to delete a record from `sensitive_data`, an error message is raised, e.g., `ERROR: Deletion not allowed on this table.`
+![image](https://github.com/user-attachments/assets/15f389b7-3721-4ef2-9346-b2fd2bc7b81e)
 
 ---
 
@@ -89,9 +108,41 @@ create table employees11(
 **Steps:**
 - Create an `audit_log` table with a counter column.
 - Write an **AFTER UPDATE** trigger on the `customer_orders` table to increment the counter in the `audit_log` table every time a record is updated.
-
+PL/SQL query
+```
+CREATE TABLE customer_orders (
+order_id INT PRIMARY KEY,
+customer_name VARCHAR(100),
+order_amount DECIMAL(10,2)
+);
+CREATE TABLE audit_log (
+id INT PRIMARY KEY,
+update_count INT DEFAULT 0
+);
+INSERT INTO audit_log (id, update_count) VALUES (1,0);
+DELIMITER $$
+CREATE TRIGGER trg_track_updates
+AFTER UPDATE ON customer_orders
+FOR EACH ROW
+BEGIN
+UPDATE audit_log
+SET update_count = update_count + 1
+WHERE id = 1;
+END$$
+DELIMITER ;
+INSERT INTO customer_orders(order_id,customer_name,order_amount)
+values(100,'Doe',150.00);
+UPDATE customer_orders
+SET order_amount = 200.00
+WHERE order_id = 100;
+UPDATE customer_orders
+SET order_amount = 400.00
+WHERE order_id = 100;
+SELECT * FROM audit_log;
+```
 **Expected Output:**
 - The `audit_log` table will maintain a count of how many updates have been made to the `customer_orders` table.
+![image](https://github.com/user-attachments/assets/a772cb4b-2f34-4ebf-9fc1-3bae30f1361b)
 
 ---
 
